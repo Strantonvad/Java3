@@ -6,7 +6,7 @@
     </Properties>
 
     <Appenders>
-        <File name="FILE" fileName="${basePath}/logfile.log" append="true">
+        <File name="FILE" fileName="C:\Users\Mikhail\IdeaProjects\Java31\task6\logfile.log" append="true">
             <PatternLayout pattern="%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C (%F:%L) - %m%n"/>
         </File>
 
