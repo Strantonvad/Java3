@@ -46,6 +46,7 @@ public class User implements Serializable {
     public List<User> getFriends() {
         return friends;
     }
+
     @XmlElement
     public List<String> getMessages() {
         return messages;
