@@ -52,15 +52,7 @@ public class DBUtility {
      */
     public ArrayList<String> selectMaker(Statement stmt){
         ArrayList<String> ans = new ArrayList<>();
-        try {
-            ResultSet rs = stmt.executeQuery("select maker, count(maker) as counter from \n" +
-                    "(select DISTINCT * from product) group by maker having counter >= 2;");
-            while (rs.next()) {
-                ans.add(rs.getString("maker"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        // TODO: 18.02.2020
         return ans;
     }
 
@@ -75,17 +67,7 @@ public class DBUtility {
 
     public int makerWithMaxProceeds(Statement stmt){
         int result = 0;
-        try {
-            ResultSet rs = stmt.executeQuery("SELECT MAX(SUMM) as ANS from(select DISTINCT maker, sum(price) as SUMM from \n" +
-                    "(select distinct id, maker, price from PC join Product on pc.model = product.model\n" +
-                    "UNION\n" +
-                    "select distinct id, maker, price from Laptop join Product on Laptop.model = product.model) \n" +
-                    "group by maker);");
-            rs.next();
-            result = rs.getInt("ANS");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        //todo
         return result;
 
     }
